@@ -1,1 +1,1 @@
-web: FastAPI app:main
+web: gunicorn app:main
