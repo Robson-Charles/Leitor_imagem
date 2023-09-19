@@ -1,0 +1,1 @@
+web: FastAPI app:main
