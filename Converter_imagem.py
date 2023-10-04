@@ -1,5 +1,6 @@
 
 import os
+
 import ler_texto_da_imagem
 
 
@@ -22,7 +23,9 @@ class Converter_imagem:
             img.save(filename='Captcha.jpg')
 
         os.remove('Captcha.svg')
-        return ler_texto_da_imagem.iniciar()
+
+
+
 
 
 
@@ -38,19 +41,19 @@ class escrever_arquivo:
 
     def __melhorar_font(self = ' '):
 
-        with open('Captcha.txt', 'r', encoding='UTF-8') as arq:
+        with open(self, 'r', encoding='UTF-8') as arq:
             arquivo = arq.read()
             lista = arquivo.split('|')
 
             for item in lista:
                     if '<svg' not in item:
-                        print('a')
+                        #print('a')
                         find_d = item.find('d="')
                         find_fim = item.find('"></path>')
                         conteudo_d = item[(find_d + 2):find_fim]
                         vezes_d = conteudo_d.count('Z')
                         if vezes_d > 3 and vezes_d < 6:
-                            print('segunda')
+                            #print('segunda')
                             primeira_ocorrencia = conteudo_d.find('Z')
                             if primeira_ocorrencia != -1 or primeira_ocorrencia != 0:
                                 segunda_ocorrencia = conteudo_d.find('Z',
@@ -60,7 +63,7 @@ class escrever_arquivo:
                                 arq.write(item.replace(conteudo_d, conteudo_d[:segunda_ocorrencia]))
 
                         elif vezes_d > 0 and vezes_d < 4:
-                            print('primeira')
+                            #print('primeira')
                             primeira_ocorrencia = conteudo_d.find('Z')
                             if primeira_ocorrencia != -1 or primeira_ocorrencia != 0:
                                 primeira_ocorrencia = conteudo_d.find('Z')
@@ -68,9 +71,9 @@ class escrever_arquivo:
                                     primeira_ocorrencia += 1
                                     arq.write(item.replace(conteudo_d, conteudo_d[:primeira_ocorrencia]))
                         elif vezes_d == 0:
-                            print('none')
+                            pass
                         else:
-                            print('terceita')
+                            #print('terceita')
                             primeira_ocorrencia = conteudo_d.find('Z')
                             if primeira_ocorrencia != -1 or primeira_ocorrencia != 0:
                                 segunda_ocorrencia = conteudo_d.find('Z',
@@ -94,16 +97,17 @@ class escrever_arquivo:
         return manipular_arquivo._transforma_em_svg('Captcha.txt')
     def criar_txt(self):
         #print(self)
-        with open("Captcha.txt", 'w', encoding='UTF-8') as arq:
+        #with open("Captcha.txt", 'w', encoding='UTF-8') as arq:
 
-            arq.write(self.replace('%', ' ').replace('*', '=').replace('width="300"', 'width="1600"').replace('height="100"', 'height="900"').replace('#', '').replace('><path', '>|<path'))
-        return escrever_arquivo.__melhorar_font()
+            #arq.write(self.replace('%', ' ').replace('*', '=').replace('width="300"', 'width="1600"').replace('height="100"', 'height="900"').replace('#', '').replace('><path', '>|<path'))
+        return escrever_arquivo.__melhorar_font(self)
 
 
 
 
 
 #escrever_arquivo.criar_txt(paths_separados)
+
 
 
 
