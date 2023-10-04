@@ -23,6 +23,7 @@ class Converter_imagem:
             img.save(filename='Captcha.jpg')
 
         os.remove('Captcha.svg')
+        ler_texto_da_imagem.iniciar()
 
 
 
