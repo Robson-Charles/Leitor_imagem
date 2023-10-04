@@ -22,8 +22,8 @@ class Converter_imagem:
             img.format = 'jpg'
             img.save(filename='Captcha.jpg')
 
-        os.remove('Captcha.svg')
-        ler_texto_da_imagem.iniciar()
+        os.remove(self)
+        return ler_texto_da_imagem.iniciar()
 
 
 
@@ -40,7 +40,7 @@ class escrever_arquivo:
 
 
 
-    def __melhorar_font(self = ' '):
+    def melhorar_font(self = ' '):
 
         with open(self, 'r', encoding='UTF-8') as arq:
             arquivo = arq.read()
@@ -95,12 +95,12 @@ class escrever_arquivo:
             if '</svg>' not in svg_conferir_final:
                 with open('Captcha.txt', 'a', encoding='UTF-8') as arq:
                     arq.write('</svg>')
-        return manipular_arquivo._transforma_em_svg('Captcha.txt')
+        return manipular_arquivo._transforma_em_svg(self)
     def criar_txt(self):
-        #print(self)
-        #with open("Captcha.txt", 'w', encoding='UTF-8') as arq:
+        print(self)
+        with open("Captcha.txt", 'w', encoding='UTF-8') as arq:
 
-            #arq.write(self.replace('%', ' ').replace('*', '=').replace('width="300"', 'width="1600"').replace('height="100"', 'height="900"').replace('#', '').replace('><path', '>|<path'))
+            arq.write(self.replace('%', ' ').replace('*', '=').replace('width="300"', 'width="1600"').replace('height="100"', 'height="900"').replace('#', '').replace('><path', '>|<path'))
         return escrever_arquivo.__melhorar_font(self)
 
 
