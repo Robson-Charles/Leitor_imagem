@@ -18,9 +18,9 @@ def iniciar():
     except:
         pass
 
-    
+    #print(texto)
     os.remove('Captcha.jpg')
-    return texto
+    return texto.replace('\n', '')
 #text = iniciar()
 
 

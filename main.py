@@ -2,9 +2,9 @@ from flask import Flask, request, jsonify
 from Converter_imagem import escrever_arquivo
 app = Flask(__name__)
 import os
-@app.route
-def get_texto(svg):
-    return jsonify(escrever_arquivo.criar_txt(svg))
+
+
+
 api_keys = {
     'client1': 'rob',
 
@@ -42,7 +42,7 @@ def process():
         file.save(file_path)
 
         # Chame a função para processar o arquivo e obter o resultado
-        result = get_texto(file_path)
+        result = escrever_arquivo.criar_txt(file_path)
 
         # Exclua o arquivo após o processamento, se necessário
         os.remove(file_path)
